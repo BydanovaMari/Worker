@@ -1,13 +1,8 @@
 public class Main {
     public static void main (String[] ages) {
         Worker.OnTaskDoneListener listener = System.out::println;
-
-        Worker worker = new Worker(listener);
+        Worker.OnTaskErrorListener listener1 = System.out::println;
+        Worker worker = new Worker(listener, listener1);
         worker.start();
-
-
-        Worker.OnTaskErrorListener listener2 = System.out::println;
-        Worker work = new Worker(listener2);
-        work.stop();
     }
 }
